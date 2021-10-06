@@ -3,6 +3,7 @@ const app = express()
 //const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Post = require('./models/post')
+const User = require('./models/user')
 const port = 3000
 const testRoutes = require('./routes/test')
 const userRoutes = require('./routes/user')
@@ -18,12 +19,26 @@ mongoose.connect('mongodb+srv://admin:admin3105@clusternodecourse.lxnkt.mongodb.
 app.use('/',(req, res,next) =>{
     res.json({message: "oklm"})
 })*/
+
+var cors = require('cors')
+app.options('*', cors()) // include before other routes 
+app.use(cors())
+
 app.use((req,res,next)=> {
-    res.setHeader('Access-Control-Allow-Origin','*')
-    res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content,Accept,Content-Type,Authorization')
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,DELETE')
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept"); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
     next()
 })
+
+app.get('/', function(req, res, next) {
+    // Handle the get for this route
+  });
+  
+  app.post('/', function(req, res, next) {
+   // Handle the post for this route
+  });
 
 app.use(express.json())
 app.use(express.urlencoded({

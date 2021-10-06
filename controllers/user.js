@@ -11,6 +11,8 @@ exports.signup = (req,res,next) => {
             console.log('1')
             console.log(req.body.email)
             const user = new User({
+                first_name:req.body.first_name,
+                last_name:req.body.last_name,
                 email:req.body.email,
                 password: hash
             })  
