@@ -29,10 +29,15 @@ export class PostService {
         return this.http.get('http://localhost:3000/test/',{})
     }
 
+    notifyPostEdit(){
+        this.postEdit_Observable.next();
+    }
+
     setPostToEdit(post: Post){
         console.log('edit post service')
         this.post_to_be_edited = post;
         console.log(this.post_to_be_edited)
+        //$('#editModal').modal('show');
         return this.post_to_be_edited
     }
 
@@ -41,8 +46,8 @@ export class PostService {
         return this.http.get('http://localhost:3000/test/' + id,{})
     }
 
-
-    deletedPost(id: ObjectId) {
+    deletedPostId(id: ObjectId) {
+        console.log('http://localhost:3000/test/' + id)
         return this.http.delete('http://localhost:3000/test/' + id,{})
     }
  

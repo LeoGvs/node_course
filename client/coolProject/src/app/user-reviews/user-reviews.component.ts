@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from '../post.service';
 import { Post } from '../models/post';
+import { ObjectId } from 'mongoose';
 
 
 @Component({
@@ -35,6 +36,10 @@ export class UserReviewsComponent implements OnInit {
 
   editPost(post: Post){
     this.postService.setPostToEdit(post);
-}
+  }
+
+  deletePost(id: ObjectId) {
+    this.postService.deletedPostId(id);
+  }
 
 }

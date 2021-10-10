@@ -43,8 +43,8 @@
             <p class="mb-1">{{post.content.substring(0, 60) + ' ...'}}</p>
             <a [routerLink]="['/review', post._id]" class="btn">Lire la review complète</a>
             <div class="icon">
-                <button type="button" title="Edit" class="fas fa-edit" data-toggle="modal" data-target="#editModal" (click)="editPost(post)"  aria-hidden="true"></button>
-                <i title="Delete" class="fas fa-trash-alt" aria-hidden="true"></i>
+                <i title="Edit" class="fas fa-edit" data-toggle="modal" data-target="#editModal" (click)="editPost(post)"  aria-hidden="true"></i>
+                <i title="Delete" class="fas fa-trash-alt" aria-hidden="true" (click)="deletePost(post._id)"></i>
             </div>
         </div>
     </div>
