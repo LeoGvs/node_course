@@ -1,0 +1,83 @@
+<header class="header clearfix">
+    <nav>
+        <ul class="nav nav-pills float-right">
+            <div class="general_menu">
+                <h3 class="text-muted">Your movies blog</h3>
+                <li class="nav-item">
+                    <a routerLink="/home" class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </div>
+            <div class="user_menu">
+                <li class="nav-item">
+                    <a routerLink="/new/review" class="nav-link" href="#">Ajouter une review</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/user/reviews" class="nav-link" href="#">Gérer mes reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+</header>
+ 
+<main role="main">
+ 
+    <div class="jumbotron">
+        <h1 class="display-3">Vos reviews</h1>
+        <p class="lead">Retrouvez ici toutes vos reviews et modifiez les facilement</p>
+    </div>
+ 
+    <div class="list-group">
+        <div *ngFor="let post of posts | myfilter:filterargs"  class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{post.title}}</h5>
+                <div class="writter">
+                    <small> Ecrit par </small> 
+                    <small class="author">{{post.author}}</small>
+                    <small> le </small>
+                    <small class="date">{{post.date}}</small>
+                </div>
+            </div>
+            <p class="mb-1">{{post.content.substring(0, 60) + ' ...'}}</p>
+            <a [routerLink]="['/review', post._id]" class="btn">Lire la review complète</a>
+            <div class="icon">
+                <button type="button" title="Edit" class="fas fa-edit" data-toggle="modal" data-target="#editModal" (click)="editPost(post)"  aria-hidden="true"></button>
+                <i title="Delete" class="fas fa-trash-alt" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+ 
+</main>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editer votre review</h5>
+                <button type="button" #closeBtn class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Description</label>
+                        <textarea name="description" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<footer class="footer">
+    <p>&copy; Your movies 2021</p>
+</footer>

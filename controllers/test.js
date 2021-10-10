@@ -1,17 +1,20 @@
 const Post = require('../models/post')
 const fs = require('fs')
+
 exports.createPost = (req,res,next)=>{
-    console.log("post test")
+    console.log("create a post")
     //const postObject = JSON.parse(req.body.post)
     const postObject = req.body
     delete postObject._id;
     const p = new Post({
-        ...postObject,
+        ...postObject
         //urlImage: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
+    console.log(p)
+    console.log(postObject)
     p.save()
         .then(() => res.status(201).json({message : 'ok'}))
-        .catch(error => res.status(400).json({ error}))
+        .catch(error => res.status(400).json({ error }))
 }
 
 exports.updatePostId =(req,res,next)=>{
@@ -48,7 +51,7 @@ exports.getPostId = (req,res,next)=>{
 
 exports.getAllPost = (req,res,next)=> {
     console.log('get all test')
-    Post.find()
+    Post.find({},[],{ sort: { _id: -1 } })
         .then(posts => res.status(200).json(posts))
         .catch(error=> res.status(400).json({error}));
 }

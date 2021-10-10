@@ -1,1 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: rgba(238, 238, 238, 0.6)!important;
+}
+
+.header,
+.marketing,
+.footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+ 
+/* Custom page header */
+.header {
+  padding-bottom: 20px!important;
+  border-bottom: 2px solid black!important;
+}
+
+.header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header nav ul:before {
+  display: none!important;
+}
+
+.header nav ul:after {
+  display: none!important;
+}
+ 
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 3rem;
+  color:rgb(27, 176, 202);
+  line-height: 1!important;
+}
+
+header .general_menu {
+  display: flex;
+  align-items: flex-end;
+}
+
+header .user_menu {
+  display: flex;
+  align-items: flex-end;
+}
+
+.header .nav-item {
+  position: relative;
+  margin: 0 10px;
+}
+
+.header .nav-item a{
+    color: black!important;
+}
+
+.list-group {
+  max-width: 1050px;
+  margin: auto;
+}
+
+.list-group a:hover {
+    background-color: rgba(68, 184, 204, 0.4)!important
+}
+
+.list-group h5 {
+  margin-bottom: 0;
+}
+
+.list-group .writter {
+  display: block;
+  margin: 8px 0 20px 0;
+}
+
+.list-group small {
+  color: rgb(155, 155, 155);
+}
+
+.list-group .author, .list-group .date {
+  color: rgb(124, 124, 124);;
+  font-weight: 800;
+}
+
+.list-group .list-group-item .icon {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+.list-group .list-group-item .icon i{
+  padding: 10px;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.review-content {
+  padding: 20px!important;
+}

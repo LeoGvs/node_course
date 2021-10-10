@@ -23,29 +23,17 @@
 </header>
  
 <main role="main">
- 
+    <ng-container *ngIf="post">
     <div class="jumbotron">
-        <h1 class="display-3">Les dernières reviews</h1>
-        <p class="lead">Retrouver ici toutes les reviews qui sont postés sur notre site !</p>
-        <p class="lead">N'hésite pas à te lancer, tout le monde peut partager son avis</p>
+        <h1 class="display-3">{{post.title}}</h1>
+        <p class="lead">Ecrit par {{post.author}} le {{post.date}}</p>
     </div>
- 
-    <div class="list-group">
-        <a *ngFor="let post of posts" [routerLink]="['/review', post._id]" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{post.title}}</h5>
-                <div class="writter">
-                    <small> Ecrit par </small> 
-                    <small class="author">{{post.author}}</small>
-                    <small> le </small>
-                    <small class="date">{{post.date}}</small>
-                </div>
-            </div>
-            <p class="mb-1">{{ post.content.substring(0, 40) + ' ...'}}</p>
-            <button class="btn">Read more</button>
-        </a>
-    </div>
- 
+    
+        <div  class="review-content list-group-item list-group-item-action flex-column align-items-start m-5">
+            <p class="mb-1">{{post.content}}</p>
+        </div>
+    
+    </ng-container>
 </main>
  
 <footer class="footer">

@@ -27,6 +27,8 @@ exports.signup = (req,res,next) => {
 }
 
 exports.login = (req,res,next) => {
+    console.log('begin login')
+
     User.findOne({email: req.body.email})
         .then(user=>{
             if(!user){
@@ -37,12 +39,17 @@ exports.login = (req,res,next) => {
                     if(!ok){
                         return res.status((401).json({error: 'incorect mdp'}))
                     }
+                    console.log('user connected')
+                    console.log(user)
                     res.status(200).json({
                         userId: user._id,
                         token: jsontoken.sign(
                             {userId: user._id},'jesuissecret',{ expiresIn:'48h'}
-                        )
-                    })
+                        ),
+                        userFirstName: user.first_name,
+                        userLastName: user.last_name,
+                        userEmail: user.email,
+                    });
                 })
                 .catch(error=> res.status(500).json({error}))
         })

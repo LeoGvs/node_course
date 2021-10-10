@@ -1,18 +1,37 @@
-<form class="form-signin">
-    <h2 class="form-signin-heading">Please sign in</h2>
-    
-    <label for="inputFirstName" class="sr-only">Your first name</label>
-       <input name="first_name" [(ngModel)] = "user.first_name"  type="text" id="inputFirstName" class="form-control" placeholder="First Name" required>
-    <label for="inputLastName" class="sr-only">Your last name</label>
-       <input name="last_name" [(ngModel)] = "user.last_name"  type="text" id="inputLastName" class="form-control" placeholder="Last Name" required>
-    <label for="inputEmail" class="sr-only">Email address</label>
-       <input name="email" [(ngModel)]="user.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-       <label for="inputPassword" class="sr-only">Password</label>
-       <input name="password" [(ngModel)]="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>       <div class="checkbox">
-         <label>
-           <input type="checkbox" value="remember-me"> Remember me
-         </label>
-       </div>
-    
-   <button class="btn btn-lg btn-primary btn-block" (click)="validateSignin();" type="button">Sign in</button>
-</form>
+<div class="container_form">
+
+   <form class="form-signin">
+       <h2 class="form-signin-heading">Please sign in</h2>
+
+       <label for="inputFirstName" class="sr-only">Your first name</label>
+          <input name="first_name" [(ngModel)] = "user.first_name"  type="text" id="inputFirstName" class="form-control" placeholder="First Name" required>
+       <label for="inputLastName" class="sr-only">Your last name</label>
+          <input name="last_name" [(ngModel)] = "user.last_name"  type="text" id="inputLastName" class="form-control" placeholder="Last Name" required>
+       <label for="inputEmail" class="sr-only">Email address</label>
+          <input name="email" [(ngModel)]="user.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input name="password" [(ngModel)]="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+      <button class="btn btn-lg btn-primary btn-block" (click)="validateSignin();" type="button">Sign in</button>
+   </form>
+
+   <form class="form-login">
+      <h2 class="form-signin-heading">Log in</h2>
+      <label for="inputLoginEmail" class="sr-only">Email address</label>
+         <input name="email" [(ngModel)]="user.email" type="email" id="inputLoginEmail" class="form-control" placeholder="Email address" required>
+         <label for="inputLoginPassword" class="sr-only">Password</label>
+         <input name="password" [(ngModel)]="user.password" type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required> 
+         <div class="checkbox">
+           <label>
+             <input type="checkbox" value="remember-me"> Remember me
+           </label>
+         </div>
+      
+     <button class="btn btn-lg btn-primary btn-block" (click)="validateLogin();" type="button">Log in</button>
+   </form>
+
+</div>
